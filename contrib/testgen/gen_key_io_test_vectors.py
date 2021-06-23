@@ -71,9 +71,9 @@ templates = [
 # templates for valid bech32 sequences
 bech32_templates = [
   # hrp, version, witprog_size, metadata, output_prefix
-  ('ltc',   0, 20, (False, 'main',    None, True), p2wpkh_prefix),
-  ('ltc',   0, 32, (False, 'main',    None, True), p2wsh_prefix),
-  ('ltc',   1,  2, (False, 'main',    None, True), (OP_1, 2)),
+  ('BLTC',   0, 20, (False, 'main',    None, True), p2wpkh_prefix),
+  ('BLTC',   0, 32, (False, 'main',    None, True), p2wsh_prefix),
+  ('BLTC',   1,  2, (False, 'main',    None, True), (OP_1, 2)),
   ('tltc',  0, 20, (False, 'test',    None, True), p2wpkh_prefix),
   ('tltc',  0, 32, (False, 'test',    None, True), p2wsh_prefix),
   ('tltc',  2, 16, (False, 'test',    None, True), (OP_2, 16)),
@@ -87,10 +87,10 @@ bech32_ng_templates = [
   ('tc',    0, 20, False, False, False),
   ('tltc',  17, 32, False, False, False),
   ('rltc',  3,  1, False, False, False),
-  ('ltc',   15, 41, False, False, False),
+  ('BLTC',   15, 41, False, False, False),
   ('tltc',  0, 16, False, False, False),
   ('rltc',  0, 32, True,  False, False),
-  ('ltc',   0, 16, True,  False, False),
+  ('BLTC',   0, 16, True,  False, False),
   ('tltc',  0, 32, False, True,  False),
   ('rltc',  0, 20, False, False, True)
 ]
@@ -112,7 +112,7 @@ def is_valid(v):
 
 def is_valid_bech32(v):
     '''Check vector v for bech32 validity'''
-    for hrp in ['ltc', 'tltc', 'rltc']:
+    for hrp in ['BLTC', 'tltc', 'rltc']:
         if decode(hrp, v) != (None, None):
             return True
     return False
